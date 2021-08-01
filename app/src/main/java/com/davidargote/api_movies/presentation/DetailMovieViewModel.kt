@@ -4,23 +4,23 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.davidargote.api_movies.application.ServiceState
-import com.davidargote.api_movies.model.remote.MovieList
-import com.davidargote.api_movies.repository.HomeRepository
+import com.davidargote.api_movies.model.remote.MovieDetail
+import com.davidargote.api_movies.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repository: HomeRepository) : ViewModel() {
+class DetailMovieViewModel @Inject constructor(private val repository: DetailRepository) : ViewModel() {
 
-    private val _serviceStateFlow: MutableStateFlow<ServiceState<MovieList>> =
+    private val _serviceStateFlow: MutableStateFlow<ServiceState<MovieDetail>> =
         MutableStateFlow(ServiceState.Empty)
 
-    val serviceStateFlow: StateFlow<ServiceState<MovieList>> = _serviceStateFlow
+    val serviceStateFlow: StateFlow<ServiceState<MovieDetail>> = _serviceStateFlow
 
-    fun getMovies() = viewModelScope.launch {
-        repository.getMovies()
+    fun getMovie(id: Int) = viewModelScope.launch {
+        repository.getMovieById(id)
             .onStart {
                 _serviceStateFlow.value = ServiceState.Loading
             }.catch { exception ->

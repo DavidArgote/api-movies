@@ -1,9 +1,8 @@
 package com.davidargote.api_movies.repository.service
 
 import com.davidargote.api_movies.application.Constants
-import com.davidargote.api_movies.model.remote.Movie
-import com.davidargote.api_movies.model.remote.MovieDetail
-import com.davidargote.api_movies.model.remote.MovieList
+import com.davidargote.api_movies.model.service.MovieDetail
+import com.davidargote.api_movies.model.service.MovieList
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.features.*
@@ -12,16 +11,7 @@ import io.ktor.client.request.*
 import io.ktor.http.*
 import javax.inject.Inject
 
-class WebService @Inject constructor() {
-
-    private val client: HttpClient = HttpClient(CIO) {
-        install(DefaultRequest) {
-            headers.append("Content-Type", "application/json")
-        }
-        install(JsonFeature) {
-            serializer = GsonSerializer()
-        }
-    }
+class WebService @Inject constructor(private val client: HttpClient) {
 
     suspend fun getMovies(): MovieList {
         return client.get {

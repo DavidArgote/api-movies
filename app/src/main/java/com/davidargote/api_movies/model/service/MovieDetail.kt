@@ -1,4 +1,4 @@
-package com.davidargote.api_movies.model.remote
+package com.davidargote.api_movies.model.service
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

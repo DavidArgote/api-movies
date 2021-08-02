@@ -1,4 +1,4 @@
-package com.davidargote.api_movies.ui
+package com.davidargote.api_movies.application
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

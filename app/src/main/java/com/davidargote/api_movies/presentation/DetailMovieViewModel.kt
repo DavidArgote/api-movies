@@ -1,10 +1,9 @@
 package com.davidargote.api_movies.presentation
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.davidargote.api_movies.application.ServiceState
-import com.davidargote.api_movies.model.remote.MovieDetail
+import com.davidargote.api_movies.model.service.MovieDetail
 import com.davidargote.api_movies.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*

@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.davidargote.api_movies.R
 import com.davidargote.api_movies.databinding.ItemListBinding
-import com.davidargote.api_movies.model.remote.Movie
-import com.davidargote.api_movies.ui.BaseViewHolder
+import com.davidargote.api_movies.model.service.Movie
+import com.davidargote.api_movies.application.BaseViewHolder
 
 class ListMoviesAdapter constructor(
     private val moviesList: List<Movie>,

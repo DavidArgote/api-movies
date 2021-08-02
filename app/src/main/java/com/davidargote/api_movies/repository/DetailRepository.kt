@@ -1,6 +1,6 @@
 package com.davidargote.api_movies.repository
 
-import com.davidargote.api_movies.model.remote.MovieDetail
+import com.davidargote.api_movies.model.service.MovieDetail
 import com.davidargote.api_movies.repository.service.WebService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

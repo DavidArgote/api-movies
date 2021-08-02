@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.davidargote.api_movies.R
 import com.davidargote.api_movies.application.ServiceState
 import com.davidargote.api_movies.databinding.FragmentHomeBinding
-import com.davidargote.api_movies.model.remote.Movie
-import com.davidargote.api_movies.model.remote.MovieList
+import com.davidargote.api_movies.model.service.Movie
+import com.davidargote.api_movies.model.service.MovieList
 import com.davidargote.api_movies.presentation.HomeViewModel
 import com.davidargote.api_movies.ui.home.adapter.ListMoviesAdapter
 import com.google.android.material.snackbar.Snackbar

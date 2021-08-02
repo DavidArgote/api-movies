@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.davidargote.api_movies.application.ServiceState
 import com.davidargote.api_movies.databinding.FragmentDetailBinding
-import com.davidargote.api_movies.model.remote.MovieDetail
+import com.davidargote.api_movies.model.service.MovieDetail
 import com.davidargote.api_movies.presentation.DetailMovieViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint

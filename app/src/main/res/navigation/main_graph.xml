@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.davidargote.api_movies.ui.detail_movie.DetailFragment"
-        android:label="Detalle pelicula"
+        android:label="Movie detail"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="movie_id"

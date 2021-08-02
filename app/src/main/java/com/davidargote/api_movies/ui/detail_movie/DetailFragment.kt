@@ -44,6 +44,7 @@ class DetailFragment : Fragment() {
             viewModel.serviceStateFlow.collect {
                 when (it) {
                     is ServiceState.Success -> {
+                        binding.containerDetailMovie.visibility = View.VISIBLE
                         binding.pbMovieDetail.visibility = View.GONE
                         bindingMovie(it.data)
                     }
@@ -56,6 +57,7 @@ class DetailFragment : Fragment() {
                     }
                     is ServiceState.Loading -> {
                         binding.pbMovieDetail.visibility = View.VISIBLE
+                        binding.containerDetailMovie.visibility = View.GONE
                     }
                     else -> {
                         Snackbar.make(

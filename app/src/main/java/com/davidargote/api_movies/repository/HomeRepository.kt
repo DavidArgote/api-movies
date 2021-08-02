@@ -2,6 +2,7 @@ package com.davidargote.api_movies.repository
 
 import com.davidargote.api_movies.application.InternetCheck
 import com.davidargote.api_movies.model.local.toMovieList
+import com.davidargote.api_movies.model.service.Movie
 import com.davidargote.api_movies.model.service.MovieList
 import com.davidargote.api_movies.model.service.toMovieEntity
 import com.davidargote.api_movies.repository.local.MovieDao
@@ -12,7 +13,10 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class HomeRepository @Inject constructor(private val service: WebService, private val movieDao: MovieDao) {
+class HomeRepository @Inject constructor(
+    private val service: WebService,
+    private val movieDao: MovieDao
+) {
 
     fun getMovies(): Flow<MovieList> = flow {
         if (InternetCheck.isNetworkAvailable()) {
@@ -24,6 +28,10 @@ class HomeRepository @Inject constructor(private val service: WebService, privat
         } else {
             emit(movieDao.getAllMovies().toMovieList())
         }
+    }.flowOn(Dispatchers.IO)
+
+    fun updateMovie(movie: Movie): Flow<Unit> = flow {
+        emit(movieDao.updateMovie(movie.toMovieEntity()))
     }.flowOn(Dispatchers.IO)
 
 }

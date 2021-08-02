@@ -10,10 +10,12 @@ import com.davidargote.api_movies.R
 import com.davidargote.api_movies.databinding.ItemListBinding
 import com.davidargote.api_movies.model.service.Movie
 import com.davidargote.api_movies.application.BaseViewHolder
+import com.davidargote.api_movies.presentation.HomeViewModel
 
 class ListMoviesAdapter constructor(
     private val moviesList: List<Movie>,
-    private val itemClickListener: OnMovieClickListener
+    private val itemClickListener: OnMovieClickListener,
+    private val viewModel: HomeViewModel
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnMovieClickListener {
@@ -50,9 +52,21 @@ class ListMoviesAdapter constructor(
                 .centerCrop().into(binding.itemMovieImage)
 
             binding.textItemDateRelease.text = item.release_date
+            binding.btnFavItem.setImageResource(getIdIconLike(item.like))
 
             binding.btnFavItem.setOnClickListener {
-                binding.btnFavItem.setImageResource(R.drawable.ic_baseline_favorite_24)
+                item.like = !item.like
+                binding.btnFavItem.setImageResource(getIdIconLike(item.like))
+                viewModel.updateMovie(item)
+            }
+
+        }
+
+        private fun getIdIconLike(value: Boolean) : Int {
+            return if (value) {
+                R.drawable.ic_baseline_favorite_24
+            } else {
+                R.drawable.ic_baseline_favorite_border_24
             }
         }
 

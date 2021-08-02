@@ -5,12 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.davidargote.api_movies.application.Constants
+import com.davidargote.api_movies.model.local.MovieDetailEntity
 import com.davidargote.api_movies.model.local.MovieEntity
 
-@Database(entities = [MovieEntity::class], version = 1)
+@Database(entities = [MovieEntity::class, MovieDetailEntity::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun movieDao(): MovieDao
+    abstract fun movieDetailDao(): MovieDetailDao
 
     companion object {
         private var INSTANCE: AppDatabase? = null

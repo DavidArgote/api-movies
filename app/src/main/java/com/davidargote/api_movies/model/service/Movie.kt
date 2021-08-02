@@ -16,7 +16,8 @@ data class Movie(
     val title: String = "",
     val video: Boolean = false,
     val vote_average: Double = -1.0,
-    val vote_count: Int = -1
+    val vote_count: Int = -1,
+    var like: Boolean = false
 ) : Parcelable
 
 data class MovieList(val results: List<Movie> = listOf())
@@ -33,5 +34,5 @@ fun Movie.toMovieEntity(): MovieEntity = MovieEntity(
     video = this.video,
     vote_average = this.vote_average,
     vote_count = this.vote_count,
-    like = false
+    like = this.like
 )

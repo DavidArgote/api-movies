@@ -78,7 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ListMoviesAdapter.OnMovie
                 COLUMN_COUNT <= 1 -> LinearLayoutManager(context)
                 else -> GridLayoutManager(context, COLUMN_COUNT)
             }
-            adapter = ListMoviesAdapter(data.results, this@HomeFragment)
+            adapter = ListMoviesAdapter(data.results, this@HomeFragment, viewModel)
             binding.rcListMovies.adapter = adapter
         }
     }

@@ -16,7 +16,7 @@ class WebService @Inject constructor(private val client: HttpClient) {
     suspend fun getMovies(): MovieList {
         return client.get {
             method = HttpMethod.Get
-            url("${Constants.BASE_URL}movie/popular?api_key=${Constants.TOKEN}")
+            url("${Constants.BASE_URL}movie/now_playing?api_key=${Constants.TOKEN}")
         }
     }
 

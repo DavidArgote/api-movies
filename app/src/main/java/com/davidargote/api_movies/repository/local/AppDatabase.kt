@@ -22,13 +22,14 @@ abstract class AppDatabase: RoomDatabase() {
                 context.applicationContext,
                 AppDatabase::class.java,
                 Constants.NAME_LOCAL_DB
-            ).build()
+            ).fallbackToDestructiveMigration().build()
             return INSTANCE!!
         }
 
         fun destroyInstance() {
             INSTANCE = null
         }
+
     }
 
 }

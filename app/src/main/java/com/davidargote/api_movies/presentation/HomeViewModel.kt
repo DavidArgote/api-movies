@@ -1,5 +1,6 @@
 package com.davidargote.api_movies.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.davidargote.api_movies.application.ServiceState
